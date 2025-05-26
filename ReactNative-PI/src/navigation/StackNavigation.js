@@ -4,12 +4,18 @@ import HomeMenu from '../components/HomeMenu'
 import Feed from '../screens/Feed'
 import BottomTabs from './BottonTabs'
 import Profile from '../screens/Profile'
-
+import Register from "../screens/Register";
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {
     return(
         <Stack.Navigator>
+            <Stack.Screen  
+            name = "Register"
+            component = {Register} 
+            options={{
+                headerShown:false
+            }}/>
             <Stack.Screen  
             name = "Tab"
             component = {BottomTabs} 
