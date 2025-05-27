@@ -5,11 +5,19 @@ import Feed from '../screens/Feed'
 import BottomTabs from './BottonTabs'
 import Profile from '../screens/Profile'
 import Register from "../screens/Register";
+import Login from "../screens/Login";
+
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {
     return(
         <Stack.Navigator>
+            <Stack.Screen  
+            name = "Login"
+            component = {Login} 
+            options={{
+                headerShown:false
+            }}/>
             <Stack.Screen  
             name = "Register"
             component = {Register} 
