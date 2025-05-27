@@ -1,21 +1,32 @@
 import { Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { Component } from 'react'
+import {auth} from '../firebase/config'
 
-export default class Register extends Component {
+    class Register extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            input1: '',
-            input2: '',
+            email: '',
+            password: '',
             error: false
         }
     }
 
-    registrarUsuario() {
-        if (this.state.input1 === 'Margarita' && this.state.input2 === '1234') {
-            this.props.navigation.navigate('Tab')
-        } else {
-            this.setState({ input1: '', input2: '', error: true })
+    registrarUsuario(email, password) {
+        if (
+            (   email !== '' &&
+                password !== ''
+            )
+            &&
+            password.length>=6
+            &&
+            email.includes('@')
+        ){
+            auth.createUserWithEmailAndPassword(email, password)
+            .then(()=>{
+                this.props.navigation.navigate('Tab')
+            })
+            .catch(err=> console.log('err:', err))
         }
     }
 
@@ -24,21 +35,21 @@ export default class Register extends Component {
             <View>
                 <Text>Register</Text>
                 <TextInput
-                    style={styles.input}
+                    style={styles.email}
                     keyboardType='default'
-                    value={this.state.input1}
-                    onChangeText={(texto) => this.setState({ input1: texto, error: false })}
+                    value={this.state.email}
+                    onChangeText={(texto) => this.setState({ email: texto, error: false })}
                     placeholder='Ingrese su email'
                 />
                 <TextInput
-                    style={styles.input}
+                    style={styles.password}
                     keyboardType='default'
-                    value={this.state.input2}
-                    onChangeText={(texto) => this.setState({ input2: texto, error: false })}
+                    value={this.state.password}
+                    onChangeText={(texto) => this.setState({ password: texto, error: false })}
                     placeholder='Ingrese su contraseña'
                     secureTextEntry={true}
                 />
-                <TouchableOpacity onPress={() => this.registrarUsuario()}>
+                <TouchableOpacity onPress={() => this.registrarUsuario(this.state.email, this.state.password)}>
                     <Text>Registrarme</Text>
                 </TouchableOpacity>
                 {
@@ -50,10 +61,18 @@ export default class Register extends Component {
 }
 
 const styles = StyleSheet.create({
-    input: {
+    email: {
+        borderWidth: 2,
+        borderColor: 'pink',
+        padding: 8,
+        marginVertical: 10
+    },
+    password:{
         borderWidth: 2,
         borderColor: 'pink',
         padding: 8,
         marginVertical: 10
     }
 })
+
+export default Register
