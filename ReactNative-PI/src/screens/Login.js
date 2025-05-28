@@ -8,6 +8,7 @@ export default class Login extends Component {
         this.state = {
             email : '',
             password: '',
+            error: '',
         }
     }
 
@@ -16,6 +17,7 @@ export default class Login extends Component {
         .then((user)=> this.props.navigation.navigate('Tab'))
         .catch((err) => {
             console.log(err);
+            this.setState({ error: 'El email o la contraseña son inválidos.' });
         });
     }
 
@@ -32,7 +34,7 @@ export default class Login extends Component {
                 />
                 <TextInput
                     style={styles.input}
-                    keyboardType='default'
+                    keyboardType='password'
                     value={this.state.password}
                     onChangeText={(text) => this.setState({password: text})}
                     placeholder='Password'
@@ -46,6 +48,7 @@ export default class Login extends Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
                 <Text style={styles.btnRegistro}>¿No tenés cuenta? Registrate</Text> 
                 </TouchableOpacity>
+                {this.state.error !== '' && <Text style={styles.error}>{this.state.error}</Text>}
             </View>
         )
     }
@@ -58,14 +61,23 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
     btn:{
-        backgroundColor: 'pink'
+        backgroundColor: 'pink',
+        borderRadius: 15,
     },
     btnTxt:{
-        color:'black'
+         color: '#ff1493',
+        textAlign: 'center',
+        marginTop: 15
     },
     btnRegistro:{
-        color: 'black', 
-        textAlign: 'center', 
-        marginTop: 10 
+        color: '#ff1493',
+        textAlign: 'center',
+        marginTop: 15
+    },
+    error:{
+        color: '#ff1493',
+        textAlign: 'center',
+        marginVertical: 8,
+        fontWeight: 'bold'
     }
 })
