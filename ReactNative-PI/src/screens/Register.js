@@ -12,6 +12,14 @@ import {auth} from '../firebase/config'
         }
     }
 
+    componentDidMount(){
+        auth.onAuthStateChanged((user)=>{
+            if(user){
+                this.props.navigation.navigate('Tab')
+            }
+        })
+    }
+
     registrarUsuario(email, password) {
         if (
             (   email !== '' &&
