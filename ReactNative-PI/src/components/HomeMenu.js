@@ -9,6 +9,7 @@ import {
     TouchableOpacity
 } from 'react-native'
 import Profile from '../screens/Profile'
+import {db} from '../firebase/config'
 
 
 class HomeMenu extends Component{
