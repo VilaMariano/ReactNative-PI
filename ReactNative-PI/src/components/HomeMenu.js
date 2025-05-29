@@ -24,19 +24,21 @@ class HomeMenu extends Component{
     render(){
         return(
             <View>
+                <Text>Esta es mi home</Text>
                 <TouchableOpacity
                     onPress={() => this.redireccionar('Profile') }
                 >
                     <Text> Profile</Text>
                 </TouchableOpacity>
 
-                <Text>Esta es mi home</Text>
-                
+                <Feed id={item.id} data={item} />
                 <FlatList
-                    //data={estudiantes}
-                    //keyExtractor={(item) => item.id.toString() }
-                    //renderItem={({item}) => <CardEstudiante dataEstudiante={item} /> }
+                    data={this.state.posts}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => <Feed id={item.id} data={item.data} />}
                 />
+
+                
             </View>
         )
     }

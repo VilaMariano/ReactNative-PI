@@ -13,7 +13,7 @@ class Feed extends Component {
   }
 
   componentDidMount(){
-    if(this.props.data.likes){
+    if(this.props.data){
       const cantLikes = this.props.data.likes.length;
       const likes = this.props.data.likes.includes(auth.currentUser.email);
       this.setState({
