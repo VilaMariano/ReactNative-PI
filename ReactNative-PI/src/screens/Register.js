@@ -47,7 +47,7 @@ class Register extends Component {
                     createdAt: Date.now()
                 })
                     .then(() => {
-                        this.props.navigation.navigate('tab');
+                        this.props.navigation.navigate('Tab');
                     });
             })
             .catch((err) => {
