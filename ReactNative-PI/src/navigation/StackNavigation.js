@@ -6,48 +6,56 @@ import BottomTabs from './BottonTabs'
 import Profile from '../screens/Profile'
 import Register from "../screens/Register";
 import Login from "../screens/Login";
+import NewPost from "../screens/NewPost";
 
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {
-    return(
+    return (
         <Stack.Navigator>
-            <Stack.Screen  
-            name = "Login"
-            component = {Login} 
-            options={{
-                headerShown:false
-            }}/>
-            <Stack.Screen  
-            name = "Register"
-            component = {Register} 
-            options={{
-                headerShown:false
-            }}/>
-            <Stack.Screen  
-            name = "Tab"
-            component = {BottomTabs} 
-            options={{
-                headerShown:false
-            }}/>
-            <Stack.Screen 
-            name = "HomeMenu"
-            component = {HomeMenu} 
-            options={{
-                headerShown: false
-            }}/>
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{
+                    headerShown: false
+                }} />
+            <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{
+                    headerShown: false
+                }} />
+            <Stack.Screen
+                name="Tab"
+                component={BottomTabs}
+                options={{
+                    headerShown: false
+                }} />
+            <Stack.Screen
+                name="HomeMenu"
+                component={HomeMenu}
+                options={{
+                    headerShown: false
+                }} />
             <Stack.Screen  //Debemos poner las demas screens
-            name = "Feed"
-            component = {Feed} 
-            options={{
-                headerShown:false
-            }}/>
+                name="Feed"
+                component={Feed}
+                options={{
+                    headerShown: false
+                }} />
             <Stack.Screen  //Debemos poner las demas screens
-            name = "Profile"
-            component = {Profile} 
-            options={{
-                headerShown:false
-            }}/>
+                name="Profile"
+                component={Profile}
+                options={{
+                    headerShown: false
+                }} />
+            <Stack.Screen
+                name="NewPost"
+                component={NewPost}
+                options={{
+                    headerShown: false
+                }}
+            />
         </Stack.Navigator>
     )
 }
