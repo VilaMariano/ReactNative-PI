@@ -7,15 +7,16 @@ class Usuario extends Component {
     constructor(props){
         super(props)
         this.state = {
-            likeado: false
         }
     }
 
     render(){
         return(
             <View>
-                <Text>{this.props.data.owner}</Text>
+                <Text>{this.props.data.userName}</Text>
+                <Text>{this.props.data.email}</Text>
             </View>
+            
         )
     } 
 }

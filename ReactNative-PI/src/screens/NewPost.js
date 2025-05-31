@@ -36,7 +36,7 @@ class NewPost extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>Nuevp Posteo</Text>
+                <Text style={styles.title}>Nuevo Posteo</Text>
 
                 <TextInput
                     style={styles.input}

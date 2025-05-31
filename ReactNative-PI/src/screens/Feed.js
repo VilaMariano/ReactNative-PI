@@ -51,14 +51,14 @@ class Feed extends Component {
     return(
       <View>
         <Text>Feed</Text>
-        <Text>{this.state.cantLikes} Me gusta</Text>
+        <Text>Cantidad de likes: {this.state.cantLikes}</Text>
         {this.state.likes ?
           <TouchableOpacity onPress={() => this.unlikePost()}>
-            <Text>Dislike</Text>
+            <Text>Me gusta</Text>
           </TouchableOpacity> 
           :
           <TouchableOpacity onPress={() => this.likearPost()}>
-            <Text>Like</Text>
+            <Text>Me gusta</Text>
           </TouchableOpacity>
         }
       </View>
