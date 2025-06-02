@@ -47,31 +47,31 @@ class Post extends Component {
 
 
     render(){
-        const { data, id } = this.props;
+        
         return(
             <View>
-                <Text>{data.owner}</Text>
-                <Text>{data.mensaje}</Text>
-                {data.owner === auth.currentUser.email && (
+                <Text>{this.props.data.owner}</Text>
+                <Text>{this.props.data.mensaje}</Text>
+                {this.props.data.owner === auth.currentUser.email && (
                 <TouchableOpacity onPress={() => this.borrarPost()}>
                 <Text>Borrar</Text>
                 </TouchableOpacity>
                 )}
                 <View>
-				<Text>{data.likes.length}</Text>
+				<Text>{this.props.data.likes.length}</Text>
 					{
-					data.likes.includes(auth.currentUser.email) ?
+					this.props.data.likes.includes(auth.currentUser.email) ?
 					<FontAwesome
 					name="heart"
 					size={18}
 					color="red"
-					onPress={() => this.unlikePost(id)}
+					onPress={() => this.unlikePost(this.props.id)}
 					/> :
 					<FontAwesome
 					name="heart-o"
 					size={18}
 					color="black"
-					onPress={() => this.likearPost(id)}
+					onPress={() => this.likearPost(this.props.id)}
 					/>
 					}
 				</View>
