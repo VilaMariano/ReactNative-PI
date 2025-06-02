@@ -69,7 +69,7 @@ class Feed extends Component {
 							<Text>No hay posteos para mostrar</Text> :
 							<FlatList
 								data={this.state.posteos}
-								keyExtractor={(item) => item.id}
+								keyExtractor={(item) => item.id.toString()}
 								renderItem={({ item }) => (
 									<View>
 										<Text>{item.data.owner}</Text>
