@@ -57,32 +57,32 @@ class Register extends Component {
 
     render() {
         return (
-            <View>
-                <Text>Register</Text>
+            <View style={styles.container}>
+                <Text style={styles.title}>Registrate</Text>
                 <TextInput
-                    style={styles.email}
+                    style={styles.input}
                     keyboardType='default'
                     value={this.state.email}
                     onChangeText={(texto) => this.setState({ email: texto, error: '' })}
                     placeholder='Ingrese su email'
                 />
                 <TextInput
-                    style={styles.username}
+                    style={styles.input}
                     keyboardType='default'
                     value={this.state.username}
                     onChangeText={(texto) => this.setState({ username: texto, error: '' })}
                     placeholder='Ingrese su nombre de usuario'
                 />
                 <TextInput
-                    style={styles.password}
+                    style={styles.input}
                     keyboardType='default'
                     value={this.state.password}
                     onChangeText={(texto) => this.setState({ password: texto, error: '' })}
                     placeholder='Ingrese su contraseña'
                     secureTextEntry={true}
                 />
-                <TouchableOpacity onPress={() => this.registrarUsuario(this.state.email, this.state.password, this.state.username)}>
-                    <Text style={styles.link}>Registrarme</Text>
+                <TouchableOpacity style={styles.btn} onPress={() => this.registrarUsuario(this.state.email, this.state.password, this.state.username)}>
+                    <Text style={styles.btnTxt}>Registrarme</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
                     <Text style={styles.link}>¿Ya tenes cuenta? Inicia sesión</Text>
@@ -94,36 +94,49 @@ class Register extends Component {
 }
 
 const styles = StyleSheet.create({
-    email: {
-        borderWidth: 2,
-        borderColor: 'pink',
-        padding: 8,
-        marginVertical: 10
+    container: {
+        flex: 1,
+        padding: 20,
+        justifyContent: 'center',
+        backgroundColor: '#fff0f5'
     },
-    password: {
-        borderWidth: 2,
-        borderColor: 'pink',
-        padding: 8,
-        marginVertical: 10
-    },
-    username: {
-        borderWidth: 2,
-        borderColor: 'pink',
-        padding: 8,
-        marginVertical: 10
-    },
-    error: {
-        color: '#ff1493',
+    title: {
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: '#d63384',
         textAlign: 'center',
+        marginBottom: 20
+    },
+    input: {
+        borderWidth: 2,
+        borderColor: 'pink',
+        padding: 10,
         marginVertical: 8,
-        fontWeight: 'bold'
+        borderRadius: 10,
+        backgroundColor: '#fff'
+    },
+    btn: {
+        backgroundColor: '#ff1493',
+        borderRadius: 12,
+        padding: 12,
+        marginTop: 10
+    },
+    btnTxt: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
     link: {
         color: '#ff1493',
         textAlign: 'center',
-        marginTop: 15
+        marginTop: 15,
+        fontWeight: 'bold'
+    },
+    error: {
+        color: '#ff1493',
+        textAlign: 'center',
+        marginVertical: 10,
+        fontWeight: 'bold'
     }
-
-})
-
+});
 export default Register

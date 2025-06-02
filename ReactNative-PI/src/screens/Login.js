@@ -23,8 +23,8 @@ export default class Login extends Component {
 
     render() {
         return (
-            <View>
-                <Text>Login</Text>
+            <View style={styles.container}>
+                <Text style={styles.title}>Login</Text>
                 <TextInput
                     style={styles.input}
                     keyboardType='email'
@@ -56,29 +56,48 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-    input:{
-        borderWidth:2,
-        borderColor:'pink',
-        marginBottom: 8
+    container: {
+        flex: 1,
+        padding: 20,
+        justifyContent: 'center',
+        backgroundColor: '#fff0f5'
     },
-    btn:{
-        backgroundColor: 'pink',
-        borderRadius: 15,
-    },
-    btnTxt:{
-         color: '#ff1493',
+    title: {
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: '#d63384',
         textAlign: 'center',
-        marginTop: 15
+        marginBottom: 20
     },
-    btnRegistro:{
-        color: '#ff1493',
-        textAlign: 'center',
-        marginTop: 15
-    },
-    error:{
-        color: '#ff1493',
-        textAlign: 'center',
+    input: {
+        borderWidth: 2,
+        borderColor: 'pink',
+        padding: 10,
         marginVertical: 8,
+        borderRadius: 10,
+        backgroundColor: '#fff'
+    },
+    btn: {
+        backgroundColor: '#ff1493',
+        borderRadius: 12,
+        padding: 12,
+        marginTop: 10
+    },
+    btnTxt: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
+    btnRegistro: {
+        color: '#ff1493',
+        textAlign: 'center',
+        marginTop: 15,
+        fontWeight: 'bold'
+    },
+    error: {
+        color: '#ff1493',
+        textAlign: 'center',
+        marginVertical: 10,
         fontWeight: 'bold'
     }
-})
+});
