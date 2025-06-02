@@ -49,7 +49,7 @@ class NewPost extends Component {
                 {this.state.error !== '' && <Text style={styles.error}>{this.state.error}</Text>}
 
                 <TouchableOpacity style={styles.boton} onPress={() => this.crearPosteo()}>
-                    <Text style={styles.botonTexto}>Publicar</Text>
+                    <Text style={styles.botonTexto}>Postear</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -58,40 +58,60 @@ class NewPost extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 20
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#fff0f5',
+        justifyContent: 'center'
     },
     title: {
-        fontSize: 22,
+        fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 15,
+        marginBottom: 20,
         textAlign: 'center',
-        color: '#481E14'
+        color: '#d63384'
     },
     input: {
-        borderWidth: 2,
-        borderColor: 'pink',
-        borderRadius: 8,
-        padding: 10,
-        minHeight: 60,
-        textAlignVertical: 'top'
+        borderWidth: 1.5,
+        borderColor: '#d63384',
+        borderRadius: 10,
+        padding: 12,
+        minHeight: 80,
+        backgroundColor: '#fff',
+        textAlignVertical: 'top',
+        fontSize: 16,
+        color: '#333',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+        elevation: 2
     },
     boton: {
         backgroundColor: '#ff1493',
-        padding: 10,
-        marginTop: 20,
-        borderRadius: 10
+        paddingVertical: 12,
+        paddingHorizontal: 25,
+        marginTop: 25,
+        borderRadius: 12,
+        alignSelf: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 3
     },
     botonTexto: {
-        color: 'white',
-        textAlign: 'center',
-        fontWeight: 'bold'
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
     error: {
-        color: '#ff1493',
+        color: '#d63384',
         textAlign: 'center',
-        marginVertical: 10,
+        marginTop: 15,
         fontWeight: 'bold'
     }
 });
+
 
 export default NewPost;
